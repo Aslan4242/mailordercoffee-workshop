@@ -21,6 +21,14 @@ android {
             enabled = true
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -54,7 +62,7 @@ android {
             versionNameSuffix "-remote"
         }
     }
-    sourceSets{
+    sourceSets {
         main { java.srcDirs = ['src/main/java'] }
         test { java.srcDirs = ['src/test/java'] }
         androidTest { java.srcDirs = ['src/androidTest/java'] }
@@ -94,8 +102,8 @@ dependencies {
     testImplementation 'androidx.test:runner:1.2.0'
     testImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
     testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    testImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
-    testImplementation  'org.robolectric:robolectric:4.3.1'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
+    testImplementation group: 'androidx.test.espresso', name: 'espresso-contrib', version: '3.3.0-beta01'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.ext:truth:1.2.0'
@@ -103,8 +111,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test:rules:1.3.0-beta01'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:3.0.2'
+    androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-contrib', version: '3.3.0-beta01'
 
+    debugImplementation('androidx.fragment:fragment-testing:1.2.4') {
+        exclude group: 'androidx.test', module: 'core'
+    }
     androidTestUtil 'androidx.test:orchestrator:1.2.0'
 }
 repositories {
