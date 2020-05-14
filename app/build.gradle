@@ -53,6 +53,11 @@ android {
             versionNameSuffix "-remote"
         }
     }
+    sourceSets{
+        main { java.srcDirs = ['src/main/java'] }
+        test { java.srcDirs = ['src/test/java'] }
+        androidTest { java.srcDirs = ['src/androidTest/java'] }
+    }
 
     variantFilter { variant ->
         def names = variant.flavors*.name
