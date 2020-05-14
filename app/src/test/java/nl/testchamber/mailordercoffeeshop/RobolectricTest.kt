@@ -77,7 +77,7 @@ class RobolectricTest {
         onView(withId(R.id.espresso_shot_counter)).check(matches(withText("0")))
         Espresso.onView(ViewMatchers.withText("+")).perform(ViewActions.click(), ViewActions.click())
         onView(withId(R.id.espresso_shot_counter)).check(matches(withText("2")))
-        Espresso.onView(ViewMatchers.withId(R.id.chocolate)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.chocolate)).perform(scrollTo(), ViewActions.click())
         Espresso.onView(ViewMatchers.withText(R.string.review_order_button)).perform(scrollTo(), ViewActions.click())
         Espresso.onView(ViewMatchers.withId(R.id.name_text_box)).perform(ViewActions.scrollTo(), ViewActions.typeText("My name"))
         Espresso.onView(ViewMatchers.withId(R.id.custom_order_name_box)).perform(ViewActions.scrollTo(), ViewActions.typeText("Custom Order Name"))

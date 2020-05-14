@@ -29,9 +29,10 @@ android {
     }
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        unitTests.includeAndroidResources = true
     }
-    testOptions.unitTests.includeAndroidResources = true
     flavorDimensions "providerVersion", "dataType"
+
 
     productFlavors {
         simpledata {
