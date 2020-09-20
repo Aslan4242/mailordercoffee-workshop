@@ -141,7 +141,7 @@ class CustomOrderFragment : androidx.fragment.app.Fragment(), AdapterView.OnItem
         val spinnerAdapter: SpinnerAdapter
             get() {
                 val spinnerArray = arrayOf("No milk", "Soy", "Low fat", "Half & half", "Cream", "Custom %")
-                val spinnerArrayAdapter: ArrayAdapter<String> = object : ArrayAdapter<String>(activity?.applicationContext, R.layout.spinner_item, spinnerArray) {
+                val spinnerArrayAdapter: ArrayAdapter<String> = object : ArrayAdapter<String>(activity?.applicationContext!!, R.layout.spinner_item, spinnerArray) {
                     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                         val view = super.getView(position, convertView, parent)
                         view.setPadding(0, view.paddingTop, 0, view.paddingBottom)
